@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.toList
 import org.example.blogapp.Constants.POSTS_PER_PAGE
 import org.example.blogapp.models.*
-import org.example.blogapp.util.Constants.CONNECTION_STRING_URI_PLACEHOLDER
 import org.example.blogapp.util.Constants.DATABASE_NAME
 import org.example.blogapp.util.Constants.MAIN_POSTS_LIMIT
 
@@ -24,7 +23,7 @@ fun initMongoDB(ctx: InitApiContext) {
 }
 
 class MongoDB(private val context: InitApiContext) : MongoRepository {
-    private val client = MongoClient.create(System.getenv(CONNECTION_STRING_URI_PLACEHOLDER))
+    private val client = MongoClient.create(System.getenv("mongo"))
     private val database = client.getDatabase(DATABASE_NAME)
     private val userCollection = database.getCollection<User>("user")
     private val postCollection = database.getCollection<Post>("post")
