@@ -75,29 +75,34 @@ fun HomeContent(randomJoke: RandomJoke?) {
             ) {
                 if (randomJoke.id != -1) {
                     Image(
-                        modifier = Modifier.size(150.px).margin(bottom = 50.px),
-                        src = Res.Image.laugh,
+                        modifier = Modifier.height(550.px).margin(bottom = 50.px),
+                        src = Res.Image.adminLogo,
                         desc = "Laugh Image"
                     )
                 }
-                if (randomJoke.joke.contains("Q:")) {
-                    SpanText(
+                SpanText(
                         modifier = Modifier.margin(bottom = 14.px).fillMaxWidth(40.percent).textAlign(TextAlign.Center)
                             .color(Theme.Secondary.rgb).fontFamily(FONT_FAMILY).fontSize(28.px)
-                            .fontWeight(FontWeight.Bold), text = randomJoke.joke.split(":")[1].dropLast(1)
+                            .fontWeight(FontWeight.Bold), text = "Welcome back AngelDroid!"
                     )
-                    SpanText(
-                        modifier = Modifier.fillMaxWidth(40.percent).textAlign(TextAlign.Center)
-                            .color(Theme.HalfBlack.rgb).fontFamily(FONT_FAMILY).fontSize(20.px)
-                            .fontWeight(FontWeight.Normal), text = randomJoke.joke.split(":").last()
-                    )
-                } else {
-                    SpanText(
-                        modifier = Modifier.margin(bottom = 14.px).fillMaxWidth(40.percent).textAlign(TextAlign.Center)
-                            .color(Theme.Secondary.rgb).fontFamily(FONT_FAMILY).fontSize(28.px)
-                            .fontWeight(FontWeight.Bold), text = randomJoke.joke
-                    )
-                }
+//                if (randomJoke.joke.contains("Q:")) {
+//                    SpanText(
+//                        modifier = Modifier.margin(bottom = 14.px).fillMaxWidth(40.percent).textAlign(TextAlign.Center)
+//                            .color(Theme.Secondary.rgb).fontFamily(FONT_FAMILY).fontSize(28.px)
+//                            .fontWeight(FontWeight.Bold), text = randomJoke.joke.split(":")[1].dropLast(1)
+//                    )
+//                    SpanText(
+//                        modifier = Modifier.fillMaxWidth(40.percent).textAlign(TextAlign.Center)
+//                            .color(Theme.HalfBlack.rgb).fontFamily(FONT_FAMILY).fontSize(20.px)
+//                            .fontWeight(FontWeight.Normal), text = randomJoke.joke.split(":").last()
+//                    )
+//                } else {
+//                    SpanText(
+//                        modifier = Modifier.margin(bottom = 14.px).fillMaxWidth(40.percent).textAlign(TextAlign.Center)
+//                            .color(Theme.Secondary.rgb).fontFamily(FONT_FAMILY).fontSize(28.px)
+//                            .fontWeight(FontWeight.Bold), text = randomJoke.joke
+//                    )
+//                }
             }
         } else {
             LoadingIndicator()

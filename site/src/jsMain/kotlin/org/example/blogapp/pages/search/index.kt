@@ -68,7 +68,7 @@ fun SearchPage() {
         showMorePosts = false
         postsToSkip = 0
         if (hasCategoryParam) {
-            searchPostsByCategory(category = runCatching { Category.valueOf(value) }.getOrElse { Category.Programming },
+            searchPostsByCategory(category = runCatching { Category.valueOf(value) }.getOrElse { Category.Android },
                 skip = postsToSkip,
                 onSuccess = { response ->
                     apiResponse = response
@@ -103,20 +103,17 @@ fun SearchPage() {
             OverFlowSidePanel(onMenuClose = { overflowOpened = false }, content = {
                 CategoryNavigationItems(selectedCategory = if (hasCategoryParam) runCatching {
                     Category.valueOf(value)
-                }.getOrElse { Category.Programming } else null, vertical = true)
+                }.getOrElse { Category.Android } else null, vertical = true)
             })
         }
-        HeaderSection(breakpoint = breakpoint,
-            selectedCategory = if (hasCategoryParam) runCatching {
-                Category.valueOf(value)
-            }.getOrElse { Category.Programming } else null,
-            logo = Res.Image.logo,
-            onMenuOpen = { overflowOpened = true })
+        HeaderSection(breakpoint = breakpoint, selectedCategory = if (hasCategoryParam) runCatching {
+            Category.valueOf(value)
+        }.getOrElse { Category.Android } else null, logo = Res.Image.logo, onMenuOpen = { overflowOpened = true })
         if (apiResponse is ApiListResponse.Success) {
             if (hasCategoryParam) {
                 SpanText(modifier = Modifier.fillMaxWidth().textAlign(TextAlign.Center)
                     .margin(top = 100.px, bottom = 40.px).fontFamily(FONT_FAMILY).fontSize(36.px),
-                    text = value.ifEmpty { Category.Programming.name })
+                    text = value.ifEmpty { Category.Android.name })
             }
             PostsSection(breakpoint = breakpoint,
                 posts = searchedPosts,
@@ -124,7 +121,7 @@ fun SearchPage() {
                 onShowMore = {
                     scope.launch {
                         if (hasCategoryParam) {
-                            searchPostsByCategory(category = runCatching { Category.valueOf(value) }.getOrElse { Category.Programming },
+                            searchPostsByCategory(category = runCatching { Category.valueOf(value) }.getOrElse { Category.Android },
                                 skip = postsToSkip,
                                 onSuccess = { response ->
                                     if (response is ApiListResponse.Success) {

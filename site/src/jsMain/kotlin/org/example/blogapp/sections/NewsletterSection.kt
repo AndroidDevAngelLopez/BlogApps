@@ -82,16 +82,16 @@ fun NewsletterContent(
     Column(modifier = Modifier.fillMaxWidth()) {
         SpanText(
             modifier = Modifier.fillMaxWidth().fontFamily(FONT_FAMILY).fontSize(36.px).fontWeight(FontWeight.Bold)
-                .textAlign(TextAlign.Center), text = "Don't miss any New Post."
+                .textAlign(TextAlign.Center), text = "Leave me your email"
         )
         SpanText(
             modifier = Modifier.fillMaxWidth().fontFamily(FONT_FAMILY).fontSize(36.px).fontWeight(FontWeight.Bold)
-                .textAlign(TextAlign.Center), text = "Sign up to our Newsletter!"
+                .textAlign(TextAlign.Center), text = "and i will contact you"
         )
         SpanText(
             modifier = Modifier.margin(top = 6.px).fillMaxWidth().fontFamily(FONT_FAMILY).fontSize(18.px)
                 .fontWeight(FontWeight.Normal).color(Theme.HalfBlack.rgb).textAlign(TextAlign.Center),
-            text = "Keep up with the latest news and blogs."
+            text = "Let's build amazing apps together!"
         )
         if (breakpoint > Breakpoint.SM) {
             Row(
@@ -129,7 +129,7 @@ fun SubscriptionForm(
             .color(Theme.DarkGray.rgb).backgroundColor(Theme.Gray.rgb).padding(leftRight = 24.px).margin(
                 right = if (vertical) 0.px else 20.px, bottom = if (vertical) 20.px else 0.px
             ).fontFamily(FONT_FAMILY).fontSize(16.px).borderRadius(100.px).toAttrs {
-                attr("placeholder", "Your Email Address")
+                attr("placeholder", "Your Email")
             })
     Button(attrs = Modifier.onClick {
         val email = (document.getElementById(Id.emailInput) as HTMLInputElement).value
@@ -149,7 +149,7 @@ fun SubscriptionForm(
     ) {
         SpanText(
             modifier = Modifier.fontFamily(FONT_FAMILY).fontSize(18.px).fontWeight(FontWeight.Medium)
-                .color(Colors.White), text = "Subscribe"
+                .color(Colors.White), text = "Send"
         )
     }
 }

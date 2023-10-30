@@ -12,9 +12,9 @@ data class Post(
     val thumbnail: String,
     val content: String,
     val category: Category,
-    val popular: Boolean = false,
-    val main: Boolean = false,
-    val sponsored: Boolean = false
+    val popularApp: Boolean = false,
+    val mainPost: Boolean = false,
+    val inDevelopment: Boolean = false
 )
 
 @Serializable
@@ -26,7 +26,7 @@ data class PostWithoutDetails(
     val subtitle: String,
     val thumbnail: String,
     val category: Category,
-    val popular: Boolean = false,
-    val main: Boolean = false,
-    val sponsored: Boolean = false
+    val popularApp: Boolean = false,
+    val mainPost: Boolean = false,
+    val inDevelopment: Boolean = false
 )

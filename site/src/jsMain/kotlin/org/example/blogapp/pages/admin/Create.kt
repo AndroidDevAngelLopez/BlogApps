@@ -50,7 +50,7 @@ data class CreatePageUiState(
     var thumbnail: String = "",
     var thumbnailInputDisabled: Boolean = true,
     var content: String = "",
-    var category: Category = Category.Programming,
+    var category: Category = Category.Android,
     var buttonText: String = "Create",
     var popular: Boolean = false,
     var main: Boolean = false,
@@ -66,7 +66,7 @@ data class CreatePageUiState(
         subtitle = "",
         thumbnail = "",
         content = "",
-        category = Category.Programming,
+        category = Category.Android,
         buttonText = "Create",
         main = false,
         popular = false,
@@ -111,9 +111,9 @@ fun CreateScreen() {
                     category = response.data.category,
                     thumbnail = response.data.thumbnail,
                     buttonText = "Update",
-                    main = response.data.main,
-                    popular = response.data.popular,
-                    sponsored = response.data.sponsored
+                    main = response.data.mainPost,
+                    popular = response.data.popularApp,
+                    sponsored = response.data.inDevelopment
                 )
             }
         } else {
@@ -147,7 +147,7 @@ fun CreateScreen() {
                         )
                         SpanText(
                             modifier = Modifier.fontSize(14.px).fontFamily(FONT_FAMILY).color(Theme.HalfBlack.rgb),
-                            text = "Popular"
+                            text = "Popular App"
                         )
                     }
                     Row(
@@ -163,7 +163,7 @@ fun CreateScreen() {
                         )
                         SpanText(
                             modifier = Modifier.fontSize(14.px).fontFamily(FONT_FAMILY).color(Theme.HalfBlack.rgb),
-                            text = "Main"
+                            text = "Main Post"
                         )
                     }
                     Row(
@@ -178,7 +178,7 @@ fun CreateScreen() {
                         )
                         SpanText(
                             modifier = Modifier.fontSize(14.px).fontFamily(FONT_FAMILY).color(Theme.HalfBlack.rgb),
-                            text = "Sponsored"
+                            text = "In Development App"
                         )
                     }
                 }
@@ -255,9 +255,9 @@ fun CreateScreen() {
                                         thumbnail = uiState.thumbnail,
                                         content = uiState.content,
                                         category = uiState.category,
-                                        popular = uiState.popular,
-                                        main = uiState.main,
-                                        sponsored = uiState.sponsored
+                                        popularApp = uiState.popular,
+                                        mainPost = uiState.main,
+                                        inDevelopment = uiState.sponsored
                                     )
                                 )
                                 if (result) {
@@ -273,9 +273,9 @@ fun CreateScreen() {
                                         thumbnail = uiState.thumbnail,
                                         content = uiState.content,
                                         category = uiState.category,
-                                        popular = uiState.popular,
-                                        main = uiState.main,
-                                        sponsored = uiState.sponsored
+                                        popularApp = uiState.popular,
+                                        mainPost = uiState.main,
+                                        inDevelopment = uiState.sponsored
                                     )
                                 )
                                 if (result) {

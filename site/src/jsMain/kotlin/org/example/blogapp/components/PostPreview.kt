@@ -36,30 +36,31 @@ fun PostPreview(
 ) {
     var checked by remember(selectableMode) { mutableStateOf(false) }
     if (vertical) {
-        Column(modifier = Modifier.thenIf(
-            condition = post.main, other = MainPostPreviewStyle.toModifier()
-        ).thenIf(
-            condition = !post.main, other = PostPreviewStyle.toModifier()
-        ).then(modifier).fillMaxWidth(
-            if (darkTheme) 100.percent
-            else if (titleColor == Theme.Sponsored.rgb) 100.percent
-            else 95.percent
-        ).margin(bottom = 24.px).padding(all = if (selectableMode) 10.px else 0.px).borderRadius(r = 4.px).border(
-            width = if (selectableMode) 4.px else 0.px,
-            style = if (selectableMode) LineStyle.Solid else LineStyle.None,
-            color = if (checked) Theme.Primary.rgb else Theme.Gray.rgb
-        ).onClick {
-            if (selectableMode) {
-                checked = !checked
-                if (checked) {
-                    onSelect(post._id)
+        Column(
+            modifier = Modifier.thenIf(
+                condition = post.mainPost, other = MainPostPreviewStyle.toModifier()
+            ).thenIf(
+                condition = !post.mainPost, other = PostPreviewStyle.toModifier()
+            ).then(modifier).fillMaxWidth(
+                if (darkTheme) 100.percent
+                else if (titleColor == Theme.Sponsored.rgb) 100.percent
+                else 95.percent
+            ).margin(bottom = 24.px).padding(all = if (selectableMode) 10.px else 0.px).borderRadius(r = 4.px).border(
+                width = if (selectableMode) 4.px else 0.px,
+                style = if (selectableMode) LineStyle.Solid else LineStyle.None,
+                color = if (checked) Theme.Primary.rgb else Theme.Gray.rgb
+            ).onClick {
+                if (selectableMode) {
+                    checked = !checked
+                    if (checked) {
+                        onSelect(post._id)
+                    } else {
+                        onDeselect(post._id)
+                    }
                 } else {
-                    onDeselect(post._id)
+                    onClick(post._id)
                 }
-            } else {
-                onClick(post._id)
-            }
-        }.transition(CSSTransition(property = TransitionProperty.All, duration = 200.ms)).cursor(Cursor.Pointer)
+            }.transition(CSSTransition(property = TransitionProperty.All, duration = 200.ms)).cursor(Cursor.Pointer)
         ) {
             PostContent(
                 post = post,
@@ -73,11 +74,12 @@ fun PostPreview(
             )
         }
     } else {
-        Row(modifier = Modifier.thenIf(
-            condition = post.main, other = MainPostPreviewStyle.toModifier()
-        ).thenIf(
-            condition = !post.main, other = PostPreviewStyle.toModifier()
-        ).then(modifier).height(thumbnailHeight).onClick { onClick(post._id) }.cursor(Cursor.Pointer)
+        Row(
+            modifier = Modifier.thenIf(
+                condition = post.mainPost, other = MainPostPreviewStyle.toModifier()
+            ).thenIf(
+                condition = !post.mainPost, other = PostPreviewStyle.toModifier()
+            ).then(modifier).height(thumbnailHeight).onClick { onClick(post._id) }.cursor(Cursor.Pointer)
         ) {
             PostContent(
                 post = post,

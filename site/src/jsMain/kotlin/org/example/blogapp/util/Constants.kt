@@ -15,6 +15,7 @@ object Res {
         const val logodark = "/logodark.svg"
         const val logoHome = "logo.svg"
         const val laugh = "/laugh.png"
+        const val adminLogo = "/adminlogo.jpg"
     }
     object Icon {
         const val bold = "/bold.svg"

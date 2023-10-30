@@ -23,7 +23,9 @@ fun initMongoDB(ctx: InitApiContext) {
 }
 
 class MongoDB(private val context: InitApiContext) : MongoRepository {
-    private val client = MongoClient.create(System.getenv("mongo"))
+
+    private val client =
+        MongoClient.create("mongodb+srv://angelcecyt09:38QFLigkJUvclGFW@mycluster.qswjfcb.mongodb.net/?retryWrites=true&w=majority")
     private val database = client.getDatabase(DATABASE_NAME)
     private val userCollection = database.getCollection<User>("user")
     private val postCollection = database.getCollection<Post>("post")
@@ -41,9 +43,9 @@ class MongoDB(private val context: InitApiContext) : MongoRepository {
                 Updates.set(Post::category.name, post.category),
                 Updates.set(Post::thumbnail.name, post.thumbnail),
                 Updates.set(Post::content.name, post.content),
-                Updates.set(Post::main.name, post.main),
-                Updates.set(Post::popular.name, post.popular),
-                Updates.set(Post::sponsored.name, post.sponsored)
+                Updates.set(Post::mainPost.name, post.mainPost),
+                Updates.set(Post::popularApp.name, post.popularApp),
+                Updates.set(Post::inDevelopment.name, post.inDevelopment)
             )
         ).wasAcknowledged()
     }
@@ -56,29 +58,29 @@ class MongoDB(private val context: InitApiContext) : MongoRepository {
 
     override suspend fun readMainPosts(): List<PostWithoutDetails> {
         return postCollection.withDocumentClass(PostWithoutDetails::class.java)
-            .find(Filters.eq(PostWithoutDetails::main.name, true)).sort(descending(PostWithoutDetails::date.name))
+            .find(Filters.eq(PostWithoutDetails::mainPost.name, true)).sort(descending(PostWithoutDetails::date.name))
             .limit(MAIN_POSTS_LIMIT).toList()
     }
 
     override suspend fun readLatestPosts(skip: Int): List<PostWithoutDetails> {
         return postCollection.withDocumentClass(PostWithoutDetails::class.java).find(
             Filters.and(
-                Filters.eq(PostWithoutDetails::popular.name, false),
-                Filters.eq(PostWithoutDetails::main.name, false),
-                Filters.eq(PostWithoutDetails::sponsored.name, false)
+                Filters.eq(PostWithoutDetails::popularApp.name, false),
+                Filters.eq(PostWithoutDetails::mainPost.name, false),
+                Filters.eq(PostWithoutDetails::inDevelopment.name, false)
             )
         ).sort(descending(PostWithoutDetails::date.name)).skip(skip).limit(POSTS_PER_PAGE).toList()
     }
 
     override suspend fun readSponsoredPosts(): List<PostWithoutDetails> {
         return postCollection.withDocumentClass(PostWithoutDetails::class.java)
-            .find(Filters.eq(PostWithoutDetails::sponsored.name, true)).sort(descending(PostWithoutDetails::date.name))
-            .limit(2).toList()
+            .find(Filters.eq(PostWithoutDetails::inDevelopment.name, true))
+            .sort(descending(PostWithoutDetails::date.name)).limit(2).toList()
     }
 
     override suspend fun readPopularPosts(skip: Int): List<PostWithoutDetails> {
         return postCollection.withDocumentClass(PostWithoutDetails::class.java)
-            .find(Filters.eq(PostWithoutDetails::popular.name, true)).sort(descending(PostWithoutDetails::date.name))
+            .find(Filters.eq(PostWithoutDetails::popularApp.name, true)).sort(descending(PostWithoutDetails::date.name))
             .skip(skip).limit(POSTS_PER_PAGE).toList()
     }
 

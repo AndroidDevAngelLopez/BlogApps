@@ -130,7 +130,7 @@ suspend fun searchPostsByTitle(context: ApiContext) {
 @Api(routeOverride = "searchpostsbycategory")
 suspend fun searchPostsByCategory(context: ApiContext) {
     try {
-        val category = Category.valueOf(context.req.params[CATEGORY_PARAM] ?: Category.Programming.name)
+        val category = Category.valueOf(context.req.params[CATEGORY_PARAM] ?: Category.Android.name)
         val skip = context.req.params[SKIP_PARAM]?.toInt() ?: 0
         val posts = context.data.getValue<MongoDB>().searchPostsByCategory(
             category = category, skip = skip

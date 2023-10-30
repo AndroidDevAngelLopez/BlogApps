@@ -25,7 +25,7 @@ fun FooterSection() {
             )
             SpanText(
                 modifier = Modifier.fontFamily(FONT_FAMILY).fontSize(14.px).color(Theme.Primary.rgb),
-                text = "AndroidDevAngelLopez"
+                text = "AngelDroid"
             )
         }
     }

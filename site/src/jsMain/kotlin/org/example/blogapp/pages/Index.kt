@@ -101,7 +101,7 @@ fun HomePage() {
             onClick = { context.router.navigateTo(Screen.PostPage.getPost(id = it)) })
         PostsSection(breakpoint = breakpoint,
             posts = popularPosts,
-            title = "Popular Posts",
+            title = "Popular Apps",
             showMoreVisibility = showMorePopular,
             onShowMore = {
                 scope.launch {

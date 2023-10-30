@@ -60,7 +60,7 @@ fun SponsoredPosts(
             )
             SpanText(
                 modifier = Modifier.fontFamily(FONT_FAMILY).fontSize(18.px).fontWeight(FontWeight.Medium)
-                    .color(Theme.Sponsored.rgb), text = "Sponsored Posts"
+                    .color(Theme.Sponsored.rgb), text = "In Development Apps"
             )
         }
         SimpleGrid(
