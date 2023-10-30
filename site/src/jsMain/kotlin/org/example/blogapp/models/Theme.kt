@@ -13,8 +13,10 @@ enum class Theme(
         rgb = rgb(r = 0, g = 162, b = 255)
     ),
     Secondary(
-        hex = "#001019",
-        rgb = rgb(r = 0, g = 16, b = 25)
+//        hex = "#001019",
+//        rgb = rgb(r = 0, g = 16, b = 25)
+        hex = "#000000",
+        rgb = rgb(r = 0, g = 0, b =0)
     ),
     Tertiary(
         hex = "#001925",

@@ -2,6 +2,8 @@ package org.example.blogapp.sections
 
 import androidx.compose.runtime.*
 import com.varabyte.kobweb.compose.css.Cursor
+import com.varabyte.kobweb.compose.css.FontWeight
+import com.varabyte.kobweb.compose.css.TextDecorationLine
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.foundation.layout.Spacer
@@ -9,18 +11,23 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.thenIf
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.icons.fa.FaBars
 import com.varabyte.kobweb.silk.components.icons.fa.FaXmark
 import com.varabyte.kobweb.silk.components.icons.fa.IconSize
+import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.components.style.toModifier
 import kotlinx.browser.document
 import org.example.blogapp.components.CategoryNavigationItems
 import org.example.blogapp.components.SearchBar
 import org.example.blogapp.models.Category
 import org.example.blogapp.models.Theme
 import org.example.blogapp.navigation.Screen
+import org.example.blogapp.styles.CategoryItemStyle
+import org.example.blogapp.util.Constants
 import org.example.blogapp.util.Constants.HEADER_HEIGHT
 import org.example.blogapp.util.Constants.PAGE_WIDTH
 import org.example.blogapp.util.Id
