@@ -1,6 +1,6 @@
 package org.example.blogapp.pages.admin
 
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextAlign
@@ -21,15 +21,12 @@ import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.example.blogapp.components.AdminPageLayout
-import org.example.blogapp.components.LoadingIndicator
-import org.example.blogapp.models.RandomJoke
 import org.example.blogapp.models.Theme
 import org.example.blogapp.navigation.Screen
 import org.example.blogapp.util.Constants.FONT_FAMILY
 import org.example.blogapp.util.Constants.HEADER_HEIGHT
 import org.example.blogapp.util.Constants.PAGE_WIDTH
 import org.example.blogapp.util.Res
-import org.example.blogapp.util.fetchRandomJoke
 import org.example.blogapp.util.isUserLoggedIn
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.percent
@@ -48,67 +45,39 @@ fun HomePage() {
 
 @Composable
 fun HomeScreen() {
-    var randomJoke: RandomJoke? by remember { mutableStateOf(null) }
-    LaunchedEffect(Unit) {
-        fetchRandomJoke {
-            randomJoke = it
-        }
-    }
     AdminPageLayout {
-        HomeContent(randomJoke = randomJoke)
+        HomeContent()
         AddButton()
     }
 }
 
 @Composable
-fun HomeContent(randomJoke: RandomJoke?) {
+fun HomeContent() {
     val breakpoint = rememberBreakpoint()
     Box(
         modifier = Modifier.fillMaxSize().padding(left = if (breakpoint > Breakpoint.MD) HEADER_HEIGHT.px else 0.px),
         contentAlignment = Alignment.Center
     ) {
-        if (randomJoke != null) {
-            Column(
-                modifier = Modifier.fillMaxSize().padding(topBottom = 50.px),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                if (randomJoke.id != -1) {
-                    Image(
-                        modifier = Modifier.height(550.px).margin(bottom = 50.px),
-                        src = Res.Image.adminLogo,
-                        desc = "Laugh Image"
-                    )
-                }
-                SpanText(
-                        modifier = Modifier.margin(bottom = 14.px).fillMaxWidth(40.percent).textAlign(TextAlign.Center)
-                            .color(Theme.Secondary.rgb).fontFamily(FONT_FAMILY).fontSize(28.px)
-                            .fontWeight(FontWeight.Bold), text = "Welcome back AngelDroid!"
-                    )
-//                if (randomJoke.joke.contains("Q:")) {
-//                    SpanText(
-//                        modifier = Modifier.margin(bottom = 14.px).fillMaxWidth(40.percent).textAlign(TextAlign.Center)
-//                            .color(Theme.Secondary.rgb).fontFamily(FONT_FAMILY).fontSize(28.px)
-//                            .fontWeight(FontWeight.Bold), text = randomJoke.joke.split(":")[1].dropLast(1)
-//                    )
-//                    SpanText(
-//                        modifier = Modifier.fillMaxWidth(40.percent).textAlign(TextAlign.Center)
-//                            .color(Theme.HalfBlack.rgb).fontFamily(FONT_FAMILY).fontSize(20.px)
-//                            .fontWeight(FontWeight.Normal), text = randomJoke.joke.split(":").last()
-//                    )
-//                } else {
-//                    SpanText(
-//                        modifier = Modifier.margin(bottom = 14.px).fillMaxWidth(40.percent).textAlign(TextAlign.Center)
-//                            .color(Theme.Secondary.rgb).fontFamily(FONT_FAMILY).fontSize(28.px)
-//                            .fontWeight(FontWeight.Bold), text = randomJoke.joke
-//                    )
-//                }
-            }
-        } else {
-            LoadingIndicator()
+
+        Column(
+            modifier = Modifier.fillMaxSize().padding(topBottom = 50.px),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Image(
+                modifier = Modifier.height(550.px).margin(bottom = 50.px),
+                src = Res.Image.adminLogo,
+                desc = "Laugh Image"
+            )
+
+            SpanText(
+                modifier = Modifier.margin(bottom = 14.px).fillMaxWidth(40.percent).textAlign(TextAlign.Center)
+                    .color(Theme.Secondary.rgb).fontFamily(FONT_FAMILY).fontSize(28.px).fontWeight(FontWeight.Bold),
+                text = "Welcome back AngelDroid!"
+            )
         }
     }
-
 }
 
 @Composable

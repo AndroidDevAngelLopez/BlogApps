@@ -9,7 +9,7 @@ import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
-import com.varabyte.kobweb.silk.components.icons.fa.FaTag
+import com.varabyte.kobweb.silk.components.icons.fa.FaCode
 import com.varabyte.kobweb.silk.components.icons.fa.IconSize
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
@@ -55,7 +55,7 @@ fun SponsoredPosts(
         Row(
             modifier = Modifier.margin(bottom = 30.px), verticalAlignment = Alignment.CenterVertically
         ) {
-            FaTag(
+            FaCode(
                 modifier = Modifier.margin(right = 10.px).color(Theme.Sponsored.rgb), size = IconSize.XL
             )
             SpanText(
