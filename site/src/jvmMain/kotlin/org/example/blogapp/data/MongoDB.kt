@@ -24,8 +24,8 @@ fun initMongoDB(ctx: InitApiContext) {
 
 class MongoDB(private val context: InitApiContext) : MongoRepository {
     private val systemVar = System.getenv("mongo")
-    private val client = MongoClient.create("mongodb+srv://angelcecyt09:38QFLigkJUvclGFW@mycluster.qswjfcb.mongodb.net/?retryWrites=true&w=majority")
-    //private val client = MongoClient.create(systemVar)
+    //private val client = MongoClient.create("mongodb+srv://angelcecyt09:38QFLigkJUvclGFW@mycluster.qswjfcb.mongodb.net/?retryWrites=true&w=majority")
+    private val client = MongoClient.create(systemVar)
     private val database = client.getDatabase(DATABASE_NAME)
     private val userCollection = database.getCollection<User>("user")
     private val postCollection = database.getCollection<Post>("post")
