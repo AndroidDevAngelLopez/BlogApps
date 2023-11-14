@@ -2,11 +2,10 @@ package org.example.blogapp.util
 
 object Constants {
     const val FONT_FAMILY = "Roboto"
-    const val SIDE_PANEL_WIDTH = 250
+    const val SIDE_PANEL_WIDTH = 300
     const val PAGE_WIDTH = 1920
     const val HEADER_HEIGHT = 100
     const val COLLAPSED_PANEL_HEIGHT = 100
-    const val HUMOR_API_URL = "https://api.humorapi.com/jokes/random?api-key=8d704dac3923408492cb771fde2e385a&max-length=180"
 }
 
 object Res {
@@ -15,7 +14,7 @@ object Res {
         const val logodark = "/logodark.svg"
         const val logoHome = "logo.svg"
         const val laugh = "/laugh.png"
-        const val adminLogo = "/adminlogo.jpg"
+        const val adminLogo = "/adminlogo.png"
         const val linkedinLogo = "/linkedinlogo.png"
         const val githubLogo = "/githublogo.png"
     }

@@ -4,5 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Newsletter(
-    val email: String
+    val _id: String = "",
+    val email: String = ""
 )
