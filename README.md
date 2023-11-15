@@ -6,6 +6,9 @@ written in jetpack compose(frontend) and kotlin for backend
 kobweb is built on top of ktor and compose web.
 compose web uses kotlin multiplatform.
 
+deployed by Render, check this link for app deployed : https://blogmultiplatform-mip0.onrender.com
+
+
 How to run this project :
 
 This is a [Kobweb](https://github.com/varabyte/kobweb) project bootstrapped with the `app/empty` template.
