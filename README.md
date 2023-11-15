@@ -9,8 +9,7 @@ compose web uses kotlin multiplatform.
 deployed by Render, check this link for app deployed : https://blogmultiplatform-mip0.onrender.com
 
 The web application is divided into two parts, the first a page so that any user can see the latest posts published by the administrator, in the same way, they can search and display by ategories the notes to finally leave your email and not miss out on more content that you like.
-<img src="screen13.png" height='100%' width='50%' ><img src="screen12.png"  height='100%' width='50%'><img src="screen11.png" height='100%' width='50%'><img src="screen10.png" height='100%' width='50%'>
-<img src="screen9.png height='100%' width='50%'"><img src="screen8.png" height='100%' width='50%'>
+<img src="screen13.png" height='100%' width='50%' ><img src="screen12.png"  height='100%' width='50%'><img src="screen11.png" height='100%' width='50%'><img src="screen10.png" height='100%' width='50%'><img src="screen9.png height='100%' width='50%'"><img src="screen8.png" height='100%' width='50%'>
 <img src="screen7.png">
 
 The second part is that of the administrator, where the administrator can create notes, assign a category, a level of importance, and write its description with a rich text entry.
