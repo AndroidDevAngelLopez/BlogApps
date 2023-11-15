@@ -17,6 +17,9 @@ The second part is that of the administrator, where the administrator can create
 Finally you can add images to the note, you can search within your own notes and delete notes.
 There is also support for multi administrator.
 
+<img src="screen6.png" height='100%' width='50%' ><img src="screen5.png"  height='100%' width='50%'><img src="screen4.png" height='100%' width='50%'><img src="screen3.png" height='100%' width='50%'>
+<img src="screen2.png">
+
 How to run this project :
 
 This is a [Kobweb](https://github.com/varabyte/kobweb) project bootstrapped with the `app/empty` template.
